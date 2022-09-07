@@ -18,9 +18,45 @@
                 Attacked case: <a href="./pages/type-0.html?id=<script>alert(document.cookie)</script>">./pages/type-0.html?id=&lt;script&gt;alert(document.cookie)&lt;/script&gt;</a>
             </li>
         </ol>
+        <h2>Code</h2>
+        <pre>
+            <code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;body&gt;
+        &lt;h1&gt;User ID&lt;/h1&gt;
+    &lt;/body&gt;
+    &lt;script&gt;
+        let params = new URLSearchParams(document.location.search);
+        document.write(params.get("id"));
+    &lt;/script&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
 
         <h1>Type 1 Reflected XSS</h1>
-        T.B.D.
+        <ol>
+            <li>
+                Normal case: <a href="./pages/type-1-normal.html">./pages/type-1.html?id=EMPLOYEE-12345</a>
+            </li>
+            <li>
+                Attacked case: <a href="./pages/type-1-attacked.html">./pages/type-1.html?id=&lt;script&gt;alert(document.cookie)&lt;/script&gt;</a>
+            </li>
+        </ol>
+        
+        <h2>Code</h2>
+        <pre>
+            <code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;body&gt;
+        &lt;h1&gt;User ID&lt;/h1&gt;
+        {% injected by server %}
+    &lt;/body&gt;
+&lt;/html&gt;
+
+            </code>
+        </pre>
 
         <h1>Type 2 Stored XSS</h1>
         <ol>
@@ -31,6 +67,28 @@
                 Attacked case: <a href="./pages/type-2.html?page-id=1">./pages/type-2.html?page-id=1</a>
             </li>
         </ol>
+
+        <h2>Code</h2>
+        <pre>
+            <code>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Blog&lt;/h1&gt;
+    &lt;/body&gt;
+    &lt;script&gt;
+        const BLOG_DATABASE = [
+            "Nice to meet you!",
+            "&lt;script&gt;alert(document.cookie)&lt;\/script&gt;"
+        ];
+        
+        let params = new URLSearchParams(document.location.search);
+        document.write(BLOG_DATABASE[parseInt(params.get("page-id"))]);
+    &lt;/script&gt;
+&lt;/html&gt;
+            </code>
+        </pre>
+
     </body>
     <script>
         function alertCookie() {
