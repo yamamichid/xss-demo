@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>Blog</h1>
+    </body>
+    <script>
+        const BLOG_DATABASE = [
+            "Nice to meet you!",
+            "<script>alert(document.cookie)<\/script>"
+        ];
+        
+        let params = new URLSearchParams(document.location.search);
+        document.write(BLOG_DATABASE[parseInt(params.get("page-id"))]);
+    </script>
+</html>

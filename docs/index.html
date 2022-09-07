@@ -1,13 +1,38 @@
 <!DOCTYPE html>
 <html>
-    <body>
+    <html>
+        <h1>Login</h1>
         <a href="./pages/login.html">Login</a>
-        <a href="./pages/type-0.html?id=EMPLOYEE-12345">Type 0: Normal</a>
-        <a href="./pages/type-0.html?id=<script>alert(document.cookie)</script>">Type 0: Attack</a>
-        <h1>Cookie status</h1>
-        <p id="cookie"></p>
+
+        <h1>Cookie</h1>
+        <p>Check if email and password are saved to cookie</p>
+        <p>Cookie: <span id="cookie-info"></span></p>
+
+
+        <h1>Type 0 DOM based XSS</h1>
+        <ol>
+            <li>
+                Normal case: <a href="./pages/type-0.html?id=EMPLOYEE-12345">./pages/type-0.html?id=EMPLOYEE-12345</a>
+            </li>
+            <li>
+                Attacked case: <a href="./pages/type-0.html?id=<script>alert(document.cookie)</script>">./pages/type-0.html?id=&lt;script&gt;alert(document.cookie)&lt;/script&gt;</a>
+            </li>
+        </ol>
+
+        <h1>Type 1 Reflected XSS</h1>
+        T.B.D.
+
+        <h1>Type 2 Stored XSS</h1>
+        <ol>
+            <li>
+                Normal case: <a href="./pages/type-2.html?page-id=0">./pages/type-2.html?page-id=0</a>
+            </li>
+            <li>
+                Attacked case: <a href="./pages/type-2.html?page-id=1">./pages/type-2.html?page-id=1</a>
+            </li>
+        </ol>
     </body>
     <script>
-        document.getElementById("cookie").textContent = document.cookie;
+        document.getElementById("cookie-info").innerText = document.cookie;
     </script>
 </html>
