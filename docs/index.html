@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <a href="./pages/login.html">Login</a>
+        <a href="./pages/type-0.html?id=EMPLOYEE-12345">Type 0: Normal</a>
+        <a href="./pages/type-0.html?id=<script>alert(document.cookie)</script>">Type 0: Attack</a>
+        <h1>Cookie status</h1>
+        <p id="cookie"></p>
+    </body>
+    <script>
+        document.getElementById("cookie").textContent = document.cookie;
+    </script>
+</html>
