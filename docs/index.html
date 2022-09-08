@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
     <html>
-        <h1>Login</h1>
-        <a href="./pages/login.html">Login</a>
+        <h1>1. Login</h1>
+        <input id="email" type="email" />
+        <input id="password" type="password" />
+        <input type="button" value="Save" onclick="save();" />
 
-        <h1>Type 0 DOM based XSS</h1>
+        <h1>2. Type 0 DOM based XSS</h1>
         <ol>
             <li>
                 Normal case: <a href="./pages/type-0.html?id=EMPLOYEE-12345">./pages/type-0.html?id=EMPLOYEE-12345</a>
@@ -29,7 +31,7 @@
             </code>
         </pre>
 
-        <h1>Type 1 Reflected XSS</h1>
+        <h1>3. Type 1 Reflected XSS</h1>
         <ol>
             <li>
                 Normal case: <a href="./pages/type-1-normal.html">./pages/type-1.html?id=EMPLOYEE-12345</a>
@@ -53,7 +55,7 @@
             </code>
         </pre>
 
-        <h1>Type 2 Stored XSS</h1>
+        <h1>4. Type 2 Stored XSS</h1>
         <ol>
             <li>
                 Normal case: <a href="./pages/type-2.html?page-id=0">./pages/type-2.html?page-id=0</a>
@@ -88,6 +90,15 @@
     <script>
         function alertCookie() {
             alert(document.cookie);
+        }
+
+        function save() {
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            debugger;
+            document.cookie = "email=" + email;
+            document.cookie = "password=" + password;
+            alert("Saved! (" + document.cookie+ ")");
         }
     </script>
 </html>
