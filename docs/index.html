@@ -2,11 +2,15 @@
 <html>
     <html>
         <h1>1. Login</h1>
+        <p>Input email and password(They never ne sent to any server, just be stored to your Cookie)</p>
         <input id="email" type="email" />
         <input id="password" type="password" />
         <input type="button" value="Save" onclick="save();" />
 
         <h1>2. Type 0 DOM based XSS</h1>
+        <p>Demonstrate DOM based XSS</p>
+        <p>Please imagine the situation you're in the other domain and click the link below.</p>
+        <p>When you click the link of Attacked case, you'll see your id and password you entered in the alert. It means the attacker can know your id and password by sending them to the attacker.</p>
         <ol>
             <li>
                 Normal case: <a href="./pages/type-0.html?id=EMPLOYEE-12345">./pages/type-0.html?id=EMPLOYEE-12345</a>
