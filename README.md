@@ -42,6 +42,7 @@ sequenceDiagram
     
 ```
 
+## Client-side XSS
 ### DOM based XSS
 ```mermaid
 sequenceDiagram
@@ -54,5 +55,18 @@ sequenceDiagram
     
 ```
 
+## Measure
+### Encoding
+* Output Encoding
+ * HTML entiry encoding
+ * HTML attribute contexts
+  * Safe Sinks
+ * JavaScript Contexts
+  * ContentT-Type
+ * URL percent(%) encoding
+ * HTML sanitization
+
+
 ## References
 * https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html#:~:text=The%20primary%20difference%20is%20where%20the%20attack%20is,XSS%20is%20a%20client%20%28browser%29%20side%20injection%20issue.
+* https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html
